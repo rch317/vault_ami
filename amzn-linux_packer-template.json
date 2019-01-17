@@ -20,20 +20,18 @@
             },
             "owners": ["137112412989", "591542846629", "801119661308", "102837901569", "013907871322", "206029621532", "286198878708", "443319210888"],
             "most_recent": true
-        }
-    }],
-
-    "provisioners": [
-        {
-            "type": "shell",
-            "inline": [
-                "sudo yum update -y",
-        				"sudo /usr/sbin/update-motd --disable",
-                "echo 'No unauthorized access permitted' | sudo tee /etc/motd",
-                "sudo rm /etc/issue",
-                "sudo ln -s /etc/motd /etc/issue",
-                "sudo yum install -y elinks screen"
-            ]
-        }
-    ]
+        },
+    "instance_type": "m4.large",
+    "ssh_username": "ec2-user",
+    "ami_name": "amazon-linux_{{ timestamp }}",
+    "tags": {
+      "Name": "amazon-linux_{{ timestamp }}"
+    },
+    "ssh_interface":"private_ip",
+    "ami_description": "Create base AMI image with packer",
+    "associate_public_ip_address": "true",
+    "security_group_ids": ["sg-48868a21","sg-addc9ec6"],
+    "vpc_id": "{{user `vpc`}}",
+    "subnet_id": "{{user `subnet`}}"
+  }]
 }
