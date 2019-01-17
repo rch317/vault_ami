@@ -32,6 +32,6 @@
     "associate_public_ip_address": "true",
     "security_group_ids": ["sg-0e1fe96a14894bf37"],
     "vpc_id": "{{user `vpc`}}",
-    "subnet_id": "{{user `subnet`}}"
+    "subnet_id": "subnet-e9fad881"
   }]
 }
