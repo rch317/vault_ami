@@ -1,0 +1,8 @@
+---
+- hosts: default:packer-test
+  gather_facts: yes
+
+  tasks:
+    - name: test
+      command: echo "test"
+
