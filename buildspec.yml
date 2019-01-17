@@ -4,12 +4,17 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - sudo apt-get update
+      - sudo apt-get install software-properties-common
+      - sudo apt-add-repository ppa:ansible/ansible
+      - sudo apt-get update
+      - sudo apt-get install ansible
+      - sudo apt-get install openssh-clients
       - echo "Installing HashiCorp Packer..."
       - curl -qL -o packer.zip https://releases.hashicorp.com/packer/1.3.3/packer_1.3.3_linux_amd64.zip && unzip packer.zip
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
       - echo "Validating amzn-linux_packer-template.json"
-      - which scp
       - ./packer validate amzn-linux_packer-template.json
   build:
     commands:
