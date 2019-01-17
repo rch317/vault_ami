@@ -30,7 +30,6 @@
     "ssh_interface":"private_ip",
     "ami_description": "Create base AMI image with packer",
     "associate_public_ip_address": "true",
-    "security_group_ids": ["sg-48868a21","sg-addc9ec6"],
     "vpc_id": "{{user `vpc`}}",
     "subnet_id": "{{user `subnet`}}"
   }]
