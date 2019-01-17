@@ -9,7 +9,7 @@
         "region": "{{user `aws_region`}}",
         "instance_type": "t2.micro",
         "ssh_username": "ec2-user",
-        "ami_name": "{{user `aws_ami_name`}}",
+        "ami_name": "amazon-linux_{{ timestamp }}",
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
         "source_ami_filter": {
