@@ -21,19 +21,5 @@
             "owners": ["137112412989", "591542846629", "801119661308", "102837901569", "013907871322", "206029621532", "286198878708", "443319210888"],
             "most_recent": true
         }
-    }],
-
-    "provisioners": [
-        {
-            "type": "shell",
-            "inline": [
-                "sudo yum update -y",
-				"sudo /usr/sbin/update-motd --disable",
-                "echo 'No unauthorized access permitted' | sudo tee /etc/motd",
-                "sudo rm /etc/issue",
-                "sudo ln -s /etc/motd /etc/issue",
-                "sudo yum install -y elinks screen"
-            ]
-        }
-    ]
+    }]
 }
