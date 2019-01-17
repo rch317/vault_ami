@@ -21,5 +21,15 @@
             "owners": ["137112412989", "591542846629", "801119661308", "102837901569", "013907871322", "206029621532", "286198878708", "443319210888"],
             "most_recent": true
         }
-    }]
+    }],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": "sudo yum install -y epel-release"
+        },
+        {
+            "type": "shell",
+            "inline": ["sudo yum install -y nginx","sudo systemctl enable nginx", "sudo systemctl start nginx"]
+        }
+      ]
 }
