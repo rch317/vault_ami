@@ -9,6 +9,7 @@ phases:
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
       - echo "Validating amzn-linux_packer-template.json"
+      - which scp
       - ./packer validate amzn-linux_packer-template.json
   build:
     commands:
