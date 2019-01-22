@@ -1,7 +1,9 @@
 {
     "variables": {
         "aws_region": "{{env `AWS_REGION`}}",
-        "aws_ami_name": "amazon-linux_{{isotime \"02Jan2006\"}}"
+        "aws_ami_name": "amazon-linux_{{isotime \"02Jan2006\"}}",
+        "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_KEY`}}"
     },
 
     "builders": [{
@@ -10,6 +12,8 @@
         "instance_type": "t2.micro",
         "ssh_username": "ec2-user",
         "user_data_file": "./user-data",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key`}}",
         "ami_name": "amazon-linux_{{ timestamp }}",
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
