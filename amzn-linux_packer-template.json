@@ -20,7 +20,7 @@
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
         "vpc_id": "{{user `vpc`}}",
-        "subnet_id": "{{user `subnet`}}"
+        "subnet_id": "{{user `subnet`}}",
         "source_ami_filter": {
             "filters": {
                 "virtualization-type": "hvm",
