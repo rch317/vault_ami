@@ -19,8 +19,8 @@
         "ami_name": "amazon-linux_{{ timestamp }}",
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
-        "subnet_id": "{{ user `aws_subnet_id`}}",
-        "vpc_id": "{{ user `aws_vpc_id`}}",
+        "vpc_id": "{{user `vpc`}}",
+        "subnet_id": "{{user `subnet`}}"
         "source_ami_filter": {
             "filters": {
                 "virtualization-type": "hvm",
