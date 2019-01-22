@@ -3,7 +3,9 @@
         "aws_region": "{{env `AWS_REGION`}}",
         "aws_ami_name": "amazon-linux_{{isotime \"02Jan2006\"}}",
         "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
-        "aws_secret_key": "{{env `AWS_SECRET_KEY`}}"
+        "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
+        "aws_vpc_id": "{{env `AWS_VPC_ID`}}",
+        "aws_subnet_id": "{{env `AWS_SUBNET_ID`}}"
     },
 
     "builders": [{
@@ -17,6 +19,8 @@
         "ami_name": "amazon-linux_{{ timestamp }}",
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
+        "subnet_id": "{{ user `aws_subnet_id`}}",
+        "vpc_id": "{{ user `aws_vpc_id`}}",
         "source_ami_filter": {
             "filters": {
                 "virtualization-type": "hvm",
