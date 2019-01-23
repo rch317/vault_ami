@@ -8,6 +8,7 @@
 
     "builders": [{
         "type": "amazon-ebs",
+        "region": "{{user `aws_region`}}",
         "instance_type": "t3.micro",
         "ssh_username": "ec2-user",
         "user_data_file": "./user-data",
