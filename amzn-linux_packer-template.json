@@ -1,26 +1,21 @@
 {
     "variables": {
         "aws_region": "{{env `AWS_REGION`}}",
-        "aws_ami_name": "amazon-linux_{{isotime \"02Jan2006\"}}",
-        "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
-        "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
-        "aws_vpc_id": "{{env `AWS_VPC_ID`}}",
-        "aws_subnet_id": "{{env `AWS_SUBNET_ID`}}"
+        "vpc": "{{env `AWS_VPC_ID`}}",
+        "subnet": "{{env `AWS_SUBNET_ID`}}",  
+        "aws_ami_name": "amazon-linux_{{isotime \"02Jan2006\"}}"    
     },
 
     "builders": [{
         "type": "amazon-ebs",
-        "region": "{{user `aws_region`}}",
-        "instance_type": "t2.micro",
+        "instance_type": "t3.micro",
         "ssh_username": "ec2-user",
         "user_data_file": "./user-data",
-        "access_key": "{{user `aws_access_key`}}",
-        "secret_key": "{{user `aws_secret_key`}}",
         "ami_name": "amazon-linux_{{ timestamp }}",
         "ami_description": "Customized Amazon Linux",
-        "associate_public_ip_address": "false",
         "vpc_id": "{{user `vpc`}}",
         "subnet_id": "{{user `subnet`}}",
+        "associate_public_ip_address": "false",
         "source_ami_filter": {
             "filters": {
                 "virtualization-type": "hvm",
