@@ -4,11 +4,12 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - yum upgrade -y
+      # - yum upgrade -y
       - echo "Installing HashiCorp Packer..."
       - curl -qL -o packer.zip https://releases.hashicorp.com/packer/1.3.3/packer_1.3.3_linux_amd64.zip && unzip packer.zip
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
+      - echo "Validating packer file"
       - ./packer validate amzn-linux_packer-template.json
   build:
     commands:
@@ -22,13 +23,7 @@ phases:
       - aws configure set aws_secret_access_key `./jq -r '.SecretAccessKey' aws_credentials.json`
       - aws configure set aws_session_token `./jq -r '.Token' aws_credentials.json`
       - echo "Building HashiCorp Packer template, amzn-linux_packer-template.json"
-      - ip a
-      - ifconfig -a
       - export PACKER_LOG=debug && ./packer build --color=false amzn-linux_packer-template.json
   post_build:
     commands:
       - echo "HashiCorp Packer build completed on `date`"
-      - ./packer version
-      - which scp
-### eof
-### this does not work...
