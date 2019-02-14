@@ -14,6 +14,7 @@
     "builders": [{
       "ami_name": "vault-consul-ubuntu-{{isotime | clean_ami_name}}-{{uuid}}",
       "ami_description": "An Ubuntu 16.04 AMI that has Vault and Consul installed.",
+      "ami_users": ["946294490538","069696590812","447589628167"],
       "instance_type": "t2.micro",
       "name": "ubuntu16-ami",
       "region": "{{user `aws_region`}}",
@@ -33,6 +34,7 @@
     },{
       "ami_name": "vault-consul-amazon-linux-{{isotime | clean_ami_name}}-{{uuid}}",
       "ami_description": "An Amazon Linux AMI that has Vault and Consul installed.",
+      "ami_users": ["946294490538","069696590812","447589628167"],
       "instance_type": "t2.micro",
       "name": "amazon-linux-ami",
       "region": "{{user `aws_region`}}",
