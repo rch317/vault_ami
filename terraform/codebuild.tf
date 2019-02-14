@@ -52,7 +52,7 @@ resource "aws_codebuild_project" "ami" {
     }
     environment_variable {
       "name"  = "VAULT_DOWNLOAD_URL"
-      "value" = "https://releases.hashicorp.com/vault/1.0.0/vault_1.0.0_linux_arm64.zip"
+      "value" = "https://releases.hashicorp.com/vault/1.0.0/vault_1.0.0_linux_amd64.zip"
     }
     environment_variable {
       "name"  = "CONSUL_DOWNLOAD_URL"
