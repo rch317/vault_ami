@@ -9,7 +9,7 @@
       "consul_version": "{{env `CONSUL_VERSION`}}",
       "consul_download_url": "{{env `CONSUL_DOWNLOAD_URL`}}",
       "vault_download_url": "{{env `VAULT_DOWNLOAD_URL`}}",
-      "install_auth_signing_script": "true",
+      "install_auth_signing_script": "false",
       "ca_public_key_path": "tls/ca.crt.pem",
       "tls_public_key_path": "tls/vault.crt.pem",
       "tls_private_key_path": "tls/vault.key.pem"
