@@ -18,9 +18,9 @@ EOF
 }
 
 resource "aws_iam_role_policy" "codebuild_ami_builder_ec2" {
-    role = "${aws_iam_role.codebuild_ami.name}"
+  role = "${aws_iam_role.codebuild_ami.name}"
 
-    policy = <<POLICY
+  policy = <<POLICY
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -104,7 +104,7 @@ POLICY
 }
 
 resource "aws_iam_role_policy" "ssm" {
-    role = "${aws_iam_role.codebuild_ami.name}"
+  role = "${aws_iam_role.codebuild_ami.name}"
 
   policy = <<POLICY
 {
@@ -123,9 +123,9 @@ POLICY
 }
 
 resource "aws_iam_role_policy" "vpc" {
-role = "${aws_iam_role.codebuild_ami.name}"
+  role = "${aws_iam_role.codebuild_ami.name}"
 
-policy = <<POLICY
+  policy = <<POLICY
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -164,9 +164,9 @@ POLICY
 }
 
 resource "aws_iam_role_policy" "base" {
-    role = "${aws_iam_role.codebuild_ami.name}"
+  role = "${aws_iam_role.codebuild_ami.name}"
 
-    policy = <<POLICY
+  policy = <<POLICY
 {
     "Version": "2012-10-17",
     "Statement": [

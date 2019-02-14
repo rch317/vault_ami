@@ -9,10 +9,6 @@ resource "aws_codebuild_project" "ami" {
     type = "NO_ARTIFACTS"
   }
 
-  //   cache {
-  //     type = "NO_CACHE"
-  //   }
-
   source {
     type            = "GITHUB"
     location        = "https://github.com/rch317/vault_ami"
@@ -24,14 +20,25 @@ resource "aws_codebuild_project" "ami" {
     security_group_ids = ["${aws_security_group.allow_all_vpc.id}"]
   }
   environment {
-    compute_type    = "BUILD_GENERAL1_MEDIUM"
-    image           = "aws/codebuild/ubuntu-base:14.04"
-    type            = "LINUX_CONTAINER"
+    compute_type = "BUILD_GENERAL1_MEDIUM"
+    // image        = "aws/codebuild/ubuntu-base:14.04"
+    image        = "aws/codebuild/eb-python-2.6-amazonlinux-64:2.1.6"
+    type         = "LINUX_CONTAINER"
+
     // privileged_mode = "true"
 
     environment_variable {
       "name"  = "AWS_REGION"
       "value" = "${var.aws_region}"
+    }
+
+    environment_variable {
+      "name"  = "AWS_VPC_ID"
+      "value" = "${module.vpc.vpc_id}"
+    }
+    environment_variable {
+      "name"  = "AWS_SUBNET_ID"
+      "value" = "${module.vpc.private_subnets[0]}"
     }
   }
   tags = {
