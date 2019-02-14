@@ -55,7 +55,7 @@
       "inline": ["mkdir -p /tmp/terraform-aws-vault/modules"]
     },{
       "type": "file",
-      "source": "{{template_dir}}/../../modules/",
+      "source": "modules/",
       "destination": "/tmp/terraform-aws-vault/modules",
       "pause_before": "30s"
     },{
