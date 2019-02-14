@@ -42,6 +42,22 @@ resource "aws_codebuild_project" "ami" {
       "name"  = "AWS_SUBNET_ID"
       "value" = "${module.vpc.private_subnets[0]}"
     }
+    environment_variable {
+      "name"  = "VAULT_VERSION"
+      "value" = "1.0.0"
+    }
+    environment_variable {
+      "name"  = "CONSUL_VERSION"
+      "value" = "1.3.1"
+    }
+    environment_variable {
+      "name"  = "VAULT_DOWNLOAD_URL"
+      "value" = "https://releases.hashicorp.com/vault/1.0.0/vault_1.0.0_linux_arm64.zip"
+    }
+    environment_variable {
+      "name"  = "CONSUL_DOWNLOAD_URL"
+      "value" = "https://releases.hashicorp.com/consul/1.3.1/consul_1.3.1_linux_amd64.zip"
+    }
   }
 
   tags = {
